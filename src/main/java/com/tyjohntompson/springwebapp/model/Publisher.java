@@ -1,9 +1,7 @@
 package com.tyjohntompson.springwebapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Publisher {
@@ -14,6 +12,10 @@ public class Publisher {
     private String name;
     private String addressLine;
     private String city;
+
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private Set<Book> books;
 
     public Publisher() {
     }
@@ -73,5 +75,13 @@ public class Publisher {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }
