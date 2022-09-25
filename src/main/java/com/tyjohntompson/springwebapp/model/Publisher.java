@@ -20,6 +20,13 @@ public class Publisher {
     public Publisher() {
     }
 
+    public Publisher(String name, String addressLine, String city, Set<Book> books) {
+        this.name = name;
+        this.addressLine = addressLine;
+        this.city = city;
+        this.books = books;
+    }
+
     @Override
     public String toString() {
         return "Publisher{" +
